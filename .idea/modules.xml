@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/pyramid.iml" filepath="$PROJECT_DIR$/.idea/pyramid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyramid-account-service/pyramid-account-service.iml" filepath="$PROJECT_DIR$/pyramid-account-service/pyramid-account-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyramid-config-server/pyramid-config-server.iml" filepath="$PROJECT_DIR$/pyramid-config-server/pyramid-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyramid-eureka-server/pyramid-eureka-server.iml" filepath="$PROJECT_DIR$/pyramid-eureka-server/pyramid-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyramid-infrastructure/pyramid-infrastructure.iml" filepath="$PROJECT_DIR$/pyramid-infrastructure/pyramid-infrastructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyramid-mall-service/pyramid-mall-service.iml" filepath="$PROJECT_DIR$/pyramid-mall-service/pyramid-mall-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyramid-merchant-service/pyramid-merchant-service.iml" filepath="$PROJECT_DIR$/pyramid-merchant-service/pyramid-merchant-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyramid-payment-service/pyramid-payment-service.iml" filepath="$PROJECT_DIR$/pyramid-payment-service/pyramid-payment-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyramid-settlement-service/pyramid-settlement-service.iml" filepath="$PROJECT_DIR$/pyramid-settlement-service/pyramid-settlement-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyramid-user-service/pyramid-user-service.iml" filepath="$PROJECT_DIR$/pyramid-user-service/pyramid-user-service.iml" />
+    </modules>
+  </component>
+</project>

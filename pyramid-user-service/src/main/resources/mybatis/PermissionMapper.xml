@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pyramid.user.mapper.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.pyramid.user.domain.entity.Permission" >
+    <id column="permission_id" property="permissionId" jdbcType="VARCHAR" />
+    <result column="resource_id" property="resourceId" jdbcType="VARCHAR" />
+    <result column="global_unique_resource_id" property="globalUniqueResourceId" jdbcType="VARCHAR" />
+    <result column="action_code" property="actionCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    permission_id, resource_id, global_unique_resource_id, action_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_permission
+    where permission_id = #{permissionId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_sys_permission
+    where permission_id = #{permissionId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.pyramid.user.domain.entity.Permission" >
+    insert into t_sys_permission (permission_id, resource_id, global_unique_resource_id, 
+      action_code)
+    values (#{permissionId,jdbcType=VARCHAR}, #{resourceId,jdbcType=VARCHAR}, #{globalUniqueResourceId,jdbcType=VARCHAR}, 
+      #{actionCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pyramid.user.domain.entity.Permission" >
+    insert into t_sys_permission
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="permissionId != null" >
+        permission_id,
+      </if>
+      <if test="resourceId != null" >
+        resource_id,
+      </if>
+      <if test="globalUniqueResourceId != null" >
+        global_unique_resource_id,
+      </if>
+      <if test="actionCode != null" >
+        action_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="permissionId != null" >
+        #{permissionId,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceId != null" >
+        #{resourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="globalUniqueResourceId != null" >
+        #{globalUniqueResourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="actionCode != null" >
+        #{actionCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pyramid.user.domain.entity.Permission" >
+    update t_sys_permission
+    <set >
+      <if test="resourceId != null" >
+        resource_id = #{resourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="globalUniqueResourceId != null" >
+        global_unique_resource_id = #{globalUniqueResourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="actionCode != null" >
+        action_code = #{actionCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where permission_id = #{permissionId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pyramid.user.domain.entity.Permission" >
+    update t_sys_permission
+    set resource_id = #{resourceId,jdbcType=VARCHAR},
+      global_unique_resource_id = #{globalUniqueResourceId,jdbcType=VARCHAR},
+      action_code = #{actionCode,jdbcType=VARCHAR}
+    where permission_id = #{permissionId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectListByResourceId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_sys_permission
+    where permission_id = #{resourceId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectListByRoleId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_sys_permission head
+    inner join t_sys_role_permission detail on head.permission_id=detail.permission_id
+    where detail.role_id = #{roleId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectListByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_sys_permission head
+    inner join t_sys_role_permission detail on head.permission_id=detail.permission_id
+    inner join t_sys_role_user user on user.role_id=detail.role_id
+    where user.user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+</mapper>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pyramid.user.mapper.RoleMapper">
+    <resultMap id="BaseResultMap" type="com.pyramid.user.domain.entity.Role">
+        <id column="role_id" property="roleId" jdbcType="VARCHAR"/>
+        <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
+        <result column="app_id" property="appId" jdbcType="VARCHAR"/>
+        <result column="app_name" property="appName" jdbcType="VARCHAR"/>
+        <result column="app_type" property="appType" jdbcType="INTEGER"/>
+        <result column="is_sys" property="isSys" jdbcType="TINYINT"/>
+        <result column="last_oper_id" property="lastOperId" jdbcType="VARCHAR"/>
+        <result column="last_oper_name" property="lastOperName" jdbcType="VARCHAR"/>
+        <result column="last_oper_time" property="lastOperTime" jdbcType="TIMESTAMP"/>
+        <result column="is_del" property="isDel" jdbcType="TINYINT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    role_id, role_name, app_id, app_name, app_type, is_sys, last_oper_id, last_oper_name, 
+    last_oper_time, is_del
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from t_sys_role
+        where role_id = #{roleId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_sys_role
+    where role_id = #{roleId,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.pyramid.user.domain.entity.Role">
+    insert into t_sys_role (role_id, role_name, app_id, 
+      app_name, app_type, is_sys, 
+      last_oper_id, last_oper_name, last_oper_time, 
+      is_del)
+    values (#{roleId,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, 
+      #{appName,jdbcType=VARCHAR}, #{appType,jdbcType=INTEGER}, #{isSys,jdbcType=TINYINT}, 
+      #{lastOperId,jdbcType=VARCHAR}, #{lastOperName,jdbcType=VARCHAR}, #{lastOperTime,jdbcType=TIMESTAMP}, 
+      #{isDel,jdbcType=TINYINT})
+  </insert>
+    <insert id="insertSelective" parameterType="com.pyramid.user.domain.entity.Role">
+        insert into t_sys_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roleId != null">
+                role_id,
+            </if>
+            <if test="roleName != null">
+                role_name,
+            </if>
+            <if test="appId != null">
+                app_id,
+            </if>
+            <if test="appName != null">
+                app_name,
+            </if>
+            <if test="appType != null">
+                app_type,
+            </if>
+            <if test="isSys != null">
+                is_sys,
+            </if>
+            <if test="lastOperId != null">
+                last_oper_id,
+            </if>
+            <if test="lastOperName != null">
+                last_oper_name,
+            </if>
+            <if test="lastOperTime != null">
+                last_oper_time,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="roleId != null">
+                #{roleId,jdbcType=VARCHAR},
+            </if>
+            <if test="roleName != null">
+                #{roleName,jdbcType=VARCHAR},
+            </if>
+            <if test="appId != null">
+                #{appId,jdbcType=VARCHAR},
+            </if>
+            <if test="appName != null">
+                #{appName,jdbcType=VARCHAR},
+            </if>
+            <if test="appType != null">
+                #{appType,jdbcType=INTEGER},
+            </if>
+            <if test="isSys != null">
+                #{isSys,jdbcType=TINYINT},
+            </if>
+            <if test="lastOperId != null">
+                #{lastOperId,jdbcType=VARCHAR},
+            </if>
+            <if test="lastOperName != null">
+                #{lastOperName,jdbcType=VARCHAR},
+            </if>
+            <if test="lastOperTime != null">
+                #{lastOperTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.pyramid.user.domain.entity.Role">
+        update t_sys_role
+        <set>
+            <if test="roleName != null">
+                role_name = #{roleName,jdbcType=VARCHAR},
+            </if>
+            <if test="appId != null">
+                app_id = #{appId,jdbcType=VARCHAR},
+            </if>
+            <if test="appName != null">
+                app_name = #{appName,jdbcType=VARCHAR},
+            </if>
+            <if test="appType != null">
+                app_type = #{appType,jdbcType=INTEGER},
+            </if>
+            <if test="isSys != null">
+                is_sys = #{isSys,jdbcType=TINYINT},
+            </if>
+            <if test="lastOperId != null">
+                last_oper_id = #{lastOperId,jdbcType=VARCHAR},
+            </if>
+            <if test="lastOperName != null">
+                last_oper_name = #{lastOperName,jdbcType=VARCHAR},
+            </if>
+            <if test="lastOperTime != null">
+                last_oper_time = #{lastOperTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=TINYINT},
+            </if>
+        </set>
+        where role_id = #{roleId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.pyramid.user.domain.entity.Role">
+    update t_sys_role
+    set role_name = #{roleName,jdbcType=VARCHAR},
+      app_id = #{appId,jdbcType=VARCHAR},
+      app_name = #{appName,jdbcType=VARCHAR},
+      app_type = #{appType,jdbcType=INTEGER},
+      is_sys = #{isSys,jdbcType=TINYINT},
+      last_oper_id = #{lastOperId,jdbcType=VARCHAR},
+      last_oper_name = #{lastOperName,jdbcType=VARCHAR},
+      last_oper_time = #{lastOperTime,jdbcType=TIMESTAMP},
+      is_del = #{isDel,jdbcType=TINYINT}
+    where role_id = #{roleId,jdbcType=VARCHAR}
+  </update>
+    <select id="selectList" resultMap="com.pyramid.user.domain.vo.RoleVO">
+    select
+    role_id, role_name, app_id, app_name, app_type, is_sys
+    from t_sys_role
+    </select>
+    <select id="selectListByUserId" resultMap="com.pyramid.user.domain.vo.RoleVO" parameterType="java.lang.String">
+        select
+        role_id, role_name, app_id, app_name, app_type, is_sys
+        from t_sys_role role
+        inner join t_sys_role_user rlat
+        on role.role_id = rlat.role_id
+        where rlat.user_id=#{userId,jdbcType.VARCHAR}
+    </select>
+
+</mapper>

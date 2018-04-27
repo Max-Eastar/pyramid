@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pyramid-config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/pyramid-user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/pyramid-account-service/pom.xml" />
+        <option value="$PROJECT_DIR$/pyramid-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/pyramid-infrastructure/pom.xml" />
+        <option value="$PROJECT_DIR$/pyramid-mall-service/pom.xml" />
+        <option value="$PROJECT_DIR$/pyramid-merchant-service/pom.xml" />
+        <option value="$PROJECT_DIR$/pyramid-payment-service/pom.xml" />
+        <option value="$PROJECT_DIR$/pyramid-settlement-service/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pyramid-account-service" />
+        <module name="pyramid-config-server" />
+        <module name="pyramid-eureka-server" />
+        <module name="pyramid-infrastructure" />
+        <module name="pyramid-mall-service" />
+        <module name="pyramid-merchant-service" />
+        <module name="pyramid-payment-service" />
+        <module name="pyramid-settlement-service" />
+        <module name="pyramid-user-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pyramid-account-service" target="1.8" />
+      <module name="pyramid-config-server" target="1.8" />
+      <module name="pyramid-eureka-server" target="1.8" />
+      <module name="pyramid-infrastructure" target="1.8" />
+      <module name="pyramid-mall-service" target="1.8" />
+      <module name="pyramid-merchant-service" target="1.8" />
+      <module name="pyramid-payment-service" target="1.8" />
+      <module name="pyramid-settlement-service" target="1.8" />
+      <module name="pyramid-user-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
